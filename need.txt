@@ -1,0 +1,24 @@
+import collections
+
+# Функция для подсчета символов в файле
+def count_characters(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = file.read()
+        return collections.Counter(data)
+
+# Путь к оригинальному и замаскированному файлу
+original_file = 'input.txt'
+masked_file = 'masked.txt'
+
+# Подсчет символов в обоих файлах
+original_counts = count_characters(original_file)
+masked_counts = count_characters(masked_file)
+
+# Вывод результатов
+print("Символы в оригинальном файле:")
+for char, count in original_counts.items():
+    print(f"'{char}': {count}")
+
+print("\nСимволы в замаскированном файле:")
+for char, count in masked_counts.items():
+    print(f"'{char}': {count}")
